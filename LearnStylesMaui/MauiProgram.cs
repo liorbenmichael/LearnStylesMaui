@@ -98,7 +98,7 @@ namespace LearnStylesMaui
 		{
 #if DEBUG
 			builder.Logging.AddDebug();
-			builder.AddMauiDevFlowAgent();
+		//	builder.AddMauiDevFlowAgent();
 #endif
 			return builder;
 		}

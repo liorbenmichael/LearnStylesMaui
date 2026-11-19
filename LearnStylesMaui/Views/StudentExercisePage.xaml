@@ -3,12 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:LearnStylesMaui.ViewModels"
              xmlns:models="clr-namespace:LearnStylesMaui.Models"
+             xmlns:converters="clr-namespace:LearnStylesMaui.Converters"
              x:Class="LearnStylesMaui.Views.StudentExercisePage"
              x:DataType="vm:StudentExerciseViewModel"
              Title="משימת תרגול לתלמידים"
              FlowDirection="RightToLeft">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StarsConverter x:Key="StarsConvertor"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-    <ScrollView>
+        <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="16">
 
             <!-- כותרת ראשית והנחיות לתלמיד -->
@@ -91,7 +97,7 @@
                     <!-- TODO לתלמיד: החלף את Style="{StaticResource CardBorder}"      -->
                     <!-- בסגנון המותאם שיצרת: Style="{StaticResource StudentCustomCard}" -->
                     <!-- ============================================================== -->
-                    <Border Style="{StaticResource CardBorder}" BackgroundColor="#FAFAFA">
+                    <Border Style="{StaticResource StudentCustomCard}" BackgroundColor="#FAFAFA">
                         <VerticalStackLayout Spacing="8">
                             <Label Text="{Binding StudentName}" FontSize="18" FontAttributes="Bold" />
 
@@ -108,8 +114,7 @@
                             <!-- ============================================================== -->
                             <HorizontalStackLayout Spacing="8">
                                 <Label Text="כוכבי דירוג:" FontAttributes="Bold" />
-                                <Label Text="{Binding DifficultyStars, StringFormat='כוכבים (ערך גולמי): {0} ★'}"
-                                       FontSize="15" TextColor="#D97706" />
+                                <Label Text="{Binding DifficultyStars, Converter={StaticResource StarsConvertor}}" />
                             </HorizontalStackLayout>
 
                             <!-- הדגמת כפתור אזהרה עם ירושה (WarningButton) -->

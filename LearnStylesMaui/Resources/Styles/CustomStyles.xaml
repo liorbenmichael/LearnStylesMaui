@@ -79,7 +79,7 @@
     <!-- 4. ירושת סגנון (Style Inheritance בעזרת BasedOn)          -->
     <!-- יורש מ-PrimaryButton ורק משנה צבע רקע!                  -->
     <!-- ======================================================== -->
-    <Style x:Key="SuccessButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+    <Style x:Key="SuccessButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton }">
         <Setter Property="BackgroundColor" Value="#2E7D32" />
     </Style>
 
@@ -89,7 +89,7 @@
 
     <!-- סגנון עבור תרגיל התלמיד (Warning Button המבוסס על PrimaryButton) -->
     <Style x:Key="WarningButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
-        <Setter Property="BackgroundColor" Value="#F57C00" />
+        <Setter Property="BackgroundColor" Value="#EA580C" />
     </Style>
 
     <!-- ======================================================== -->
@@ -135,6 +135,14 @@
         <Setter Property="FontFamily" Value="Consolas, Courier New, monospace" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="TextColor" Value="#38BDF8" />
+    </Style>
+
+    <Style x:Key="StudentCustomCard" TargetType="Border">
+        <Setter Property="StrokeShape" Value="RoundRectangle 16"/>
+        <Setter Property="BackgroundColor" Value="#F0FDF4"/>
+        <Setter Property="StrokeThickness" Value="2"/>
+        <Setter Property="Stroke" Value="#86EFAC"/>
+        <Setter Property="Shadow"/>
     </Style>
 
 </ResourceDictionary>
